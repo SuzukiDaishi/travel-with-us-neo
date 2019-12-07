@@ -1,0 +1,36 @@
+{
+    "en": {
+        "CHANGE_NAME": "Change your nickname",
+        "CHANGE_NAME_PLACEHOLDER": "Enter name to change",
+        "CHANGE_NAME_BUTTON": "Change",
+        "CHANGE_NAME_LOADING": "Changing...",
+        "CHANGE_NAME_ERROR": "Error",
+        "CHANGE_IMAGE": "Change your icon",
+        "CHANGE_IMAGE_SELECT": "Select an image",
+        "CHANGE_IMAGE_BUTTON": "Change",
+        "CHANGE_IMAGE_LOADING": "Changing...",
+        "CHANGE_IMAGE_ERROR": "Error",
+        "CHANGE_DESCRIPTION": "Self-introduction changes",
+        "CHANGE_DESCRIPTION_PLACEHOLDER": "Write a self-introduction",
+        "CHANGE_DESCRIPTION_BUTTON": "Change",
+        "CHANGE_DESCRIPTION_LOADING": "Changing...",
+        "CHANGE_DESCRIPTION_ERROR": "Error"
+    },
+    "ja": {
+        "CHANGE_NAME": "名前を変更",
+        "CHANGE_NAME_PLACEHOLDER": "新規の名前を入力",
+        "CHANGE_NAME_BUTTON": "変更",
+        "CHANGE_NAME_LOADING": "変更中...",
+        "CHANGE_NAME_ERROR": "失敗",
+        "CHANGE_IMAGE": "アイコン変更",
+        "CHANGE_IMAGE_SELECT": "画像を選択",
+        "CHANGE_IMAGE_BUTTON": "変更",
+        "CHANGE_IMAGE_LOADING": "変更中...",
+        "CHANGE_IMAGE_ERROR": "失敗",
+        "CHANGE_DESCRIPTION": "自己紹介の変更",
+        "CHANGE_DESCRIPTION_PLACEHOLDER": "自己紹介をかく",
+        "CHANGE_DESCRIPTION_BUTTON": "変更",
+        "CHANGE_DESCRIPTION_LOADING": "変更中...",
+        "CHANGE_DESCRIPTION_ERROR": "失敗"
+    }
+}

@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "img_url": "https://i.imgur.com/JOoDeYg.jpg",
+        "locales": {
+            "en": {
+                "name": "Kenrokuen",
+                "discription": "Kenrokuen is one of the best gardens in Japan"
+            },
+            "ja": {
+                "name": "兼六園",
+                "discription": "日本で一番すごいお庭の一つです。"
+            }
+        }
+    },
+    {
+        "id": 1,
+        "img_url": "https://i.imgur.com/c7glCUA.jpg",
+        "locales": {
+            "en": {
+                "name": "Higashi chaya",
+                "discription": "Kenrokuen is one of the best gardens in Japan"
+            },
+            "ja": {
+                "name": "東茶屋街",
+                "discription": "金沢の東側にある古くからある歓楽街です"
+            }
+        }
+    },
+    { 
+        "id": 2,
+        "img_url": "https://i.imgur.com/mltNq4o.jpg", 
+        "locales": {
+            "en": {
+                "name": "Kanazawa station", 
+                "discription": "Kanazawa Station is the most beautiful station in the world"
+            },
+            "ja": {
+              "name": "金沢駅", 
+              "discription": "すごいきれいな駅"
+            }
+        }
+    },
+    { 
+        "id": 3,
+        "img_url": "https://i.imgur.com/t4FwxUq.jpg", 
+        "locales": {
+            "en": {
+              "name": "Kanazawa castle", 
+              "discription": "Kanazawa Castle is an old castle dedicated to combat"
+            },
+            "ja": {
+              "name": "金沢城", 
+              "discription": "金沢城は戦闘専用の古城です"
+            }
+        }
+    }
+]

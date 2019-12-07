@@ -1,0 +1,14 @@
+{
+    "en": {
+        "EMAIL_NAME": "E-mail",
+        "RECOMMEND_SPOTS": "Recommend Spots",
+        "MY_POST": "My Posts",
+        "SETTINGS": "Settings"
+    },
+    "ja": {
+        "EMAIL_NAME": "メールアドレス",
+        "RECOMMEND_SPOTS": "おすすめスポット",
+        "MY_POST": "自分の投稿",
+        "SETTINGS": "設定"
+    }
+}
