@@ -107,6 +107,7 @@ module.exports = {
   */
   plugins: [
     { src: '~plugins/vue-lazyload', ssr: false },
+    '~/plugins/vue-scrollto'
   ],
   axios: {
   },

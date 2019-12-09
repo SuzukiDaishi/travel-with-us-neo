@@ -1,6 +1,6 @@
 <template lang="pug">
 .wrapper
-    section.hero
+    section.hero#page-top
         .hero-head(style={'z-index': 10})
             b-navbar.is-fixed-top(:mobile-burger="false", style={'background': 'white'})
                 template#navbar-rigth(slot="brand")
@@ -73,9 +73,13 @@ export default {
                 $state.loaded()
                 this.isLoading = false
             })
+            .catch( err => {
+                $state.complete()
+            } )
         },
         postButtonClick() {
             this.isPosting = !this.isPosting
+            this.$scrollTo('#page-top')
             if (this.isPosting) {
                 anime({
                     targets: '#plusIcon',
