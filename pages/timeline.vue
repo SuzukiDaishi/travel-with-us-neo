@@ -38,7 +38,7 @@
                                                     data-loading="/images/preloader.gif")
                                         p 
                                             | {{ post.text }}
-                    infinite-loading(spinner="spiral", @infinite="infiniteHandler")
+                    infinite-loading(spinner="spiral", @infinite="infiniteHandler", :distance="1")
 
 </template>
 
@@ -79,8 +79,8 @@ export default {
         },
         postButtonClick() {
             this.isPosting = !this.isPosting
-            this.$scrollTo('#page-top')
             if (this.isPosting) {
+                this.$scrollTo('#page-top')
                 anime({
                     targets: '#plusIcon',
                     rotate:  45
