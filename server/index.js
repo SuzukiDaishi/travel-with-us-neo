@@ -9,6 +9,9 @@ const fs = require('fs')
 const multer = require('multer')
 const imgur = require('imgur')
 
+const spots = require('../assets/data/spots.json')
+
+
 // Authorization: Client-ID YOUR_CLIENT_ID
 // Client ID: 10c653f617c2ed7
 // Client secret: 50e92eb623c9bce58c7f6b346541a0271dc41ef2
@@ -147,6 +150,31 @@ app.post('/user/change/description', async (req, res) => {
         return res.json({ ok: true, description: description })
     } catch (e) {
         return res.status(400).json({ error: 'Failed to change description.' })
+    }
+})
+
+app.get( '/spots/show', async (req, res) => {
+    try {
+        let datas = await models.Post.findAll()
+        let users = await models.Users.findAll()
+        let out = []
+        for (let data of datas) {
+            out.push({
+                id: data.id,
+                imageurl: data.imageurl,
+                text: data.text,
+                createAt: data.createdAt,
+                user: {
+                    id: users.filter(u => u.id === data.userid)[0].id,
+                    name: users.filter(u => u.id === data.userid)[0].name,
+                    imgurl: users.filter(u => u.id === data.userid)[0].imageurl,
+                },
+                spot: spots.filter(s => s.id === data.spotid)[0],
+            })
+        }
+        return res.json({ ok: true, data: out})
+    } catch(e) {
+        return res.status(400).json({ error: 'Database Error.' })
     }
 })
 

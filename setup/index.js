@@ -21,3 +21,35 @@ models.Users.create({
 .catch((err) => {
     console.log('Failed to generate administrator account ...')
 })
+
+models.Post.create({
+    userid: 1,
+    spotid: 0,
+    imageurl: 'https://i.imgur.com/JOoDeYg.jpg',
+    text: 'めちゃくそ楽しい卍',
+})
+.then((record) => {
+    console.log('post 1 ok')
+})
+.catch((err) => {
+    console.log('post 1 ng')
+})
+
+
+
+models.Post.create({
+    userid: 1,
+    spotid: 0,
+    imageurl: 'https://i.imgur.com/JOoDeYg.jpg',
+    text: 'やっベーー嬉しい!',
+})
+.then((record) => {
+    console.log('post 2 ok')
+})
+.catch((err) => {
+    console.log('post 2 ng')
+})
+
+
+
+

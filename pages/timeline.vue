@@ -20,7 +20,7 @@
                             article.media
                                 .media-left
                                     figure.image.is-64x64
-                                        img(:src="post.user.imageurl || 'https://bulma.io/images/placeholders/128x128.png'")
+                                        img(:src="post.user.imgurl || 'https://bulma.io/images/placeholders/128x128.png'")
                                 .media-content
                                     .content
                                         p
@@ -33,7 +33,7 @@
                                                 img(:data-src="post.imageurl", 
                                                     data-loading="/images/preloader.gif")
                                         p 
-                                            | {{ post.description }}
+                                            | {{ post.text }}
                     infinite-loading(spinner="spiral", @infinite="infiniteHandler")
 
 </template>
@@ -44,33 +44,8 @@ import InfiniteLoading from 'vue-infinite-loading';
 export default {
     data() {
         return {
-            posts: [
-                {
-                    id: 1,
-                    user: {
-                        id: 1,
-                        name: 'admin',
-                        imageurl: null, 
-                    },
-                    imageurl: 'https://i.imgur.com/JOoDeYg.jpg',
-                    description: '本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文',
-                    spot: {
-                        id: 1,
-                        img_url: "https://i.imgur.com/c7glCUA.jpg",
-                        locales: {
-                            en: {
-                                name: "Higashi chaya",
-                                discription: "Kenrokuen is one of the best gardens in Japan"
-                            },
-                            ja: {
-                                name: "東茶屋街",
-                                discription: "金沢の東側にある古くからある歓楽街です"
-                            }
-                        }
-                    },
-                    createAt: '2019-12-8',
-                },
-            ]
+            isLoading: false,
+            posts: []
         }
     },
     fetch ({ app, store, redirect }) {
@@ -83,8 +58,25 @@ export default {
     }, 
     methods: {
         infiniteHandler($state) {
-
+            this.$axios
+            .get(`http://localhost:3000/api/spots/show`) 
+            .then( res => this.posts = res.data.data.sort((a,b)=>a.createAt>b.createAt?-1:1) )
+        },
+        loadNewPosts() {
+            if ( window.scrollY + window.innerHeight >= document.body.clientHeight && !this.isLoading ) {
+                this.isLoading = true
+                this.$axios
+                .get(`http://localhost:3000/api/spots/show`) 
+                .then( res => {
+                    console.log(res.data.data);
+                    this.posts = this.posts.concat(res.data.data.sort((a,b)=>a.createAt>b.createAt?-1:1)) 
+                    this.isLoading = false
+                })
+            }
         }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.loadNewPosts)
     }
 }
 </script>
