@@ -58,25 +58,16 @@ export default {
     }, 
     methods: {
         infiniteHandler($state) {
+            if (this.isLoading) return
+            this.isLoading = true
             this.$axios
             .get(`http://localhost:3000/api/spots/show`) 
-            .then( res => this.posts = res.data.data.sort((a,b)=>a.createAt>b.createAt?-1:1) )
-        },
-        loadNewPosts() {
-            if ( window.scrollY + window.innerHeight >= document.body.clientHeight && !this.isLoading ) {
-                this.isLoading = true
-                this.$axios
-                .get(`http://localhost:3000/api/spots/show`) 
-                .then( res => {
-                    console.log(res.data.data);
-                    this.posts = this.posts.concat(res.data.data.sort((a,b)=>a.createAt>b.createAt?-1:1)) 
-                    this.isLoading = false
-                })
-            }
+            .then( res => {
+                this.posts.push(...res.data.data.sort((a,b)=>a.createAt>b.createAt?-1:1))
+                $state.loaded()
+                this.isLoading = false
+            })
         }
-    },
-    mounted() {
-        window.addEventListener('scroll', this.loadNewPosts)
     }
 }
 </script>
