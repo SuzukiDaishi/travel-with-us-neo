@@ -20,7 +20,7 @@
                             article.media
                                 .media-left
                                     figure.image.is-64x64
-                                        img(:src="post.user.imageurl")
+                                        img(:src="post.user.imageurl || 'https://bulma.io/images/placeholders/128x128.png'")
                                 .media-content
                                     .content
                                         p
@@ -50,7 +50,7 @@ export default {
                     user: {
                         id: 1,
                         name: 'admin',
-                        imageurl: 'https://i.imgur.com/0U0MMRT.jpg', 
+                        imageurl: null, 
                     },
                     imageurl: 'https://i.imgur.com/JOoDeYg.jpg',
                     description: '本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文',
