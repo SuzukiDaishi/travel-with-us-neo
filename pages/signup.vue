@@ -1,3 +1,5 @@
+<i18n src="@/assets/locales/signup.json"></i18n>
+
 <template lang="pug">
 section
     transition(name="error")
@@ -7,45 +9,45 @@ section
         .hero-body
             .container.has-text-centered
                 .column.is-4.is-offset-4
-                    h3.title.has-text-black Sign up
+                    h3.title.has-text-black {{ $t('SIGNUP_TITLE') }}
                     hr.hr
-                    p.subtitle.has-text-black You should register.
+                    p.subtitle.has-text-black {{ $t('SIGNUP_DESCRIPTION') }}
                     .box
                         form(@submit.prevent="signup")
                             .field
                                 .control
-                                    input.input.is-large(type="text", placeholder="Enter your name", 
+                                    input.input.is-large(type="text", :placeholder="$t('INPUT_NAME')", 
                                                          autofocus="", v-model="newName", 
                                                          @keydown.self.prevent.enter="nextFocus('#email')")
                             .field
                                 .control
-                                    input#email.input.is-large(type="email", placeholder="Enter email", 
+                                    input#email.input.is-large(type="email", :placeholder="$t('INPUT_EMAIL')", 
                                                          autofocus="", v-model="newEmail",
                                                          @keydown.self.prevent.enter="nextFocus('#password1')")
                             .field
                                 .control
-                                    input#password1.input.is-large(type="password", placeholder="Enter new Password",
+                                    input#password1.input.is-large(type="password", :placeholder="$t('INPUT_PASS')",
                                                                    v-model="newPassword", 
                                                                    @keydown.self.prevent.enter="nextFocus('#password2')")
                             .field
                                 .control
-                                    input#password2.input.is-large(type="password", placeholder="Once again Password", 
+                                    input#password2.input.is-large(type="password", :placeholder="$t('INPUT_PASS2')", 
                                                                    v-model="integrityPassword",
                                                                    @keydown.self.prevent.enter="")
                             .field 
                                 .buttons.control
                                     a.button.is-primary.is-light.is-fullwidth(href="/terms", target="_blank") 
-                                        | Check terms of service
+                                        | {{ $t('TERMS_LINK') }}
                             .field
-                                b-checkbox(v-model="isAgree") I agree to the terms of service
+                                b-checkbox(v-model="isAgree") {{ $t('TERMS_AGREE') }}
                             button.button.is-block.is-info.is-large.is-fullwidth(type="submit") Sign up&nbsp;
                                 i.fa.fa-sign-in(aria-hidden="true")
                     p.has-text-grey
-                        nuxt-link(:to="localePath('index')") Back 
+                        nuxt-link(:to="localePath('index')") {{ $t('BACK') }} 
                         | &nbsp;|&nbsp;
-                        nuxt-link(:to="localePath('login')") Login
+                        nuxt-link(:to="localePath('login')") {{ $t('LOGIN') }} 
                         | &nbsp;|&nbsp;
-                        nuxt-link(:to="localePath('index')") Forget Password
+                        nuxt-link(:to="localePath('index')") {{ $t('FORGET_PASSWORD') }} 
 </template>
 
 <script>

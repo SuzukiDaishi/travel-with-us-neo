@@ -1,0 +1,28 @@
+{
+    "en": {
+        "SIGNUP_TITLE": "Sign up",
+        "SIGNUP_DESCRIPTION": "You should register.",
+        "INPUT_NAME": "Enter your name",
+        "INPUT_EMAIL": "Enter your email",
+        "INPUT_PASS": "Enter new Password",
+        "INPUT_PASS2": "Once again Password",
+        "TERMS_LINK": "Check terms of service",
+        "TERMS_AGREE": "I agree to the terms of service",
+        "BACK": "Back",
+        "LOGIN": "Login",
+        "FORGET_PASSWORD": "Forget Password"
+    },
+    "ja": {
+        "SIGNUP_TITLE": "新規登録",
+        "SIGNUP_DESCRIPTION": "以下の情報を登録してください",
+        "INPUT_NAME": "ニックネームを入力",
+        "INPUT_EMAIL": "メールアドレスを入力",
+        "INPUT_PASS": "パスワードを入力",
+        "INPUT_PASS2": "パスワードを再度入力",
+        "TERMS_LINK": "利用規約を確認",
+        "TERMS_AGREE": "利用規約に同意する",
+        "BACK": "戻る",
+        "LOGIN": "ログイン",
+        "FORGET_PASSWORD": "パスワードを忘れたら"
+    }
+}

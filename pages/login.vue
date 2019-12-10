@@ -1,3 +1,5 @@
+<i18n src="@/assets/locales/login.json"></i18n>
+
 <template lang="pug">
 section
     transition(name="error")
@@ -7,28 +9,28 @@ section
         .hero-body
             .container.has-text-centered
                 .column.is-4.is-offset-4
-                    h3.title.has-text-black Login
+                    h3.title.has-text-black {{ $t('LOGIN_TITLE') }}
                     hr.login-hr
-                    p.subtitle.has-text-black Please login to proceed.
+                    p.subtitle.has-text-black {{ $t('LOGIN_DESCRIPTION') }}
                     .box
                         form(@submit.prevent="login")
                             .field
                                 .control
-                                    input#email.input.is-large(type="email", placeholder="Your Email", autofocus, 
+                                    input#email.input.is-large(type="email", :placeholder="$t('LOGIN_MILE')", autofocus, 
                                                                v-model="email", @keydown.self.prevent.enter="nextFocus",
                                                                autocomplete="email")
                             .field
                                 .control
-                                    input#password.input.is-large(type="password", placeholder="Your Password", 
+                                    input#password.input.is-large(type="password", :placeholder="$t('LOGIN_PASSWORD')", 
                                                                   v-model="password", autocomplete="password")
-                            button.button.is-block.is-info.is-large.is-fullwidth(type="submit") Login&nbsp;
+                            button.button.is-block.is-info.is-large.is-fullwidth(type="submit") {{ $t('LOGIN_BUTTON') }}&nbsp;
                                 i.fa.fa-sign-in(aria-hidden="true")
                     p.has-text-grey
-                        nuxt-link(:to="localePath('index')") Back 
+                        nuxt-link(:to="localePath('index')") {{ $t('BACK') }} 
                         | &nbsp;|&nbsp;
-                        nuxt-link(:to="localePath('signup')") Sign Up
+                        nuxt-link(:to="localePath('signup')") {{ $t('SIGNUP') }} 
                         | &nbsp;|&nbsp;
-                        nuxt-link(:to="localePath('index')") Forget Password
+                        nuxt-link(:to="localePath('index')") {{ $t('FORGET_PASSWORD') }}
 </template>
 
 <script>

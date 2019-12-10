@@ -41,7 +41,7 @@ models.Post.create({
     userid: 1,
     spotid: 0,
     imageurl: 'https://i.imgur.com/JOoDeYg.jpg',
-    text: 'やっベーー嬉しい!',
+    text: 'うんち',
 })
 .then((record) => {
     console.log('post 2 ok')

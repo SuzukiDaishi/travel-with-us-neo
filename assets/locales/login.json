@@ -1,0 +1,22 @@
+{
+    "en": {
+        "LOGIN_TITLE": "Login",
+        "LOGIN_DESCRIPTION": "Please login to proceed.",
+        "LOGIN_MILE": "Your Email",
+        "LOGIN_PASSWORD": "Your Password",
+        "LOGIN_BUTTON": "Login",
+        "BACK": "Back",
+        "SIGNUP": "Sign Up",
+        "FORGET_PASSWORD": "Forget Password"
+    },
+    "ja": {
+        "LOGIN_TITLE": "ログイン",
+        "LOGIN_DESCRIPTION": "以下の項目を入力してください",
+        "LOGIN_MILE": "メールアドレスを入力",
+        "LOGIN_PASSWORD": "パスワードを入力",
+        "LOGIN_BUTTON": "ログイン",
+        "BACK": "戻る",
+        "SIGNUP": "新規登録",
+        "FORGET_PASSWORD": "パスワードを忘れたら"
+    }
+}

@@ -1,3 +1,5 @@
+<i18n src="@/assets/locales/timeline.json"></i18n>
+
 <template lang="pug">
 .wrapper
     section.hero#page-top
@@ -18,27 +20,26 @@
                 transition
                     .box(v-if="isPosting")
                         form(@submit.prevent="posting")
-                            h1.title.is-4 投稿
+                            h1.title.is-4 {{ $t('POST_TITLE') }}
                             b-field
                                 .select
                                     select.select.is-fullwidth(v-model="inputSpot")
-                                        option(value='', disabled, selected, style='display:none;') 場所を選択してね
+                                        option(value='', disabled, selected, style='display:none;') {{ $t('SELECT_SPOT') }}
                                         option(v-for="spot in spots", :value="spot.id") {{ spot.locales[$i18n.locale].name }}
-                                        option(value="-1") その他
                             b-field.file
                                 b-upload(v-model="inputFile", accept="image/*")
                                     a.button.is-primary
                                         b-icon(icon="upload")
-                                        span 画像を入れてね
+                                        span {{ $t('SELECT_IMAGE') }}
                                 span.file-name
-                                    | {{ inputFile===null ? '画像ない':inputFile.name }}
+                                    | {{ inputFile===null ? $t('IMAGE_NOTHING'):inputFile.name }}
                             b-field
                                 img(:src="postImage")
                             b-field
-                                b-input(type="textarea", maxlength="140", placeholder="本文書いてね", v-model="inputText")
+                                b-input(type="textarea", maxlength="140", :placeholder="$t('INPUT_TEXT')", v-model="inputText")
                             b-field
                                 .buttons
-                                    button.button.is-fullwidth(type="submit") {{ isSending ? '送信中...':'送信' }}
+                                    button.button.is-fullwidth(type="submit") {{ isSending ? $t('SENDING'):$t('SEND') }}
 
                 ul
                     li(v-for="post in posts", style={'margin-bottom': '1rem'})
@@ -80,7 +81,8 @@ export default {
             inputFile: null,
             inputText: '',
             inputSpot: '',
-            spots: require('@/assets/data/spots.json'),
+            spots: require('@/assets/data/spots.json')
+                   .concat([require('@/assets/data/spotsOther.json')]),
             posts: []
         }
     },
