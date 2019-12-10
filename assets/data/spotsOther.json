@@ -1,0 +1,14 @@
+{
+    "id": -1,
+    "img_url": "https://i.imgur.com/c7glCUA.jpg",
+    "locales": {
+        "en": {
+            "name": "Other",
+            "discription": "Other spot"
+        },
+        "ja": {
+            "name": "その他",
+            "discription": "その他"
+        }
+    }
+}

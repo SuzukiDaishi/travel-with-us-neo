@@ -17,7 +17,29 @@
             .section
                 transition
                     .box(v-if="isPosting")
-                        | hello
+                        form(@submit.prevent="posting")
+                            h1.title.is-4 投稿
+                            b-field
+                                .select
+                                    select.select.is-fullwidth(v-model="inputSpot")
+                                        option(value='', disabled, selected, style='display:none;') 場所を選択してね
+                                        option(v-for="spot in spots", :value="spot.id") {{ spot.locales[$i18n.locale].name }}
+                                        option(value="-1") その他
+                            b-field.file
+                                b-upload(v-model="inputFile", accept="image/*")
+                                    a.button.is-primary
+                                        b-icon(icon="upload")
+                                        span 画像を入れてね
+                                span.file-name
+                                    | {{ inputFile===null ? '画像ない':inputFile.name }}
+                            b-field
+                                img(:src="postImage")
+                            b-field
+                                b-input(type="textarea", maxlength="140", placeholder="本文書いてね", v-model="inputText")
+                            b-field
+                                .buttons
+                                    button.button.is-fullwidth(type="submit") {{ isSending ? '送信中...':'送信' }}
+
                 ul
                     li(v-for="post in posts", style={'margin-bottom': '1rem'})
                         .box
@@ -44,13 +66,21 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading'
+import VImageInput from 'vuetify-image-input'
 import anime from 'animejs'
+
+const urljoin = require('url-join')
 
 export default {
     data() {
         return {
             isLoading: false,
             isPosting: false,
+            isSending: false,
+            inputFile: null,
+            inputText: '',
+            inputSpot: '',
+            spots: require('@/assets/data/spots.json'),
             posts: []
         }
     },
@@ -60,7 +90,8 @@ export default {
         }
     },
     components: {
-        InfiniteLoading
+        InfiniteLoading,
+        VImageInput
     }, 
     methods: {
         infiniteHandler($state) {
@@ -91,6 +122,48 @@ export default {
                     rotate: 0
                 })
             }
+        },
+        posting() {
+            if (this.inputFile == null) return 
+            if (this.inputSpot == '') return 
+            if (this.isSending) return
+            this.isSending = true
+            let formData = new FormData()
+            formData.append('image',this.inputFile )
+            formData.append('text', this.inputText )
+            formData.append('spot', this.inputSpot )
+            this.$axios.post(urljoin(process.env.baseUrl, '/api/spots/upload'),
+                formData, 
+                { 
+                    headers: { 
+                        'Content-Type': 'multipart/form-data', 
+                        'Access-Control-Allow-Origin': '*',
+                    }
+                }
+            )
+            .then( res => {
+                console.log(res.data);
+                this.posts.unshift(res.data.postInfo)
+                this.inputFile = null
+                this.inputText = ''
+                this.inputSpot = ''
+            }) 
+            .catch( err => {
+                console.log(err)
+            })
+            .finally( _ => {
+                this.isPosting = false
+                anime({
+                    targets: '#plusIcon',
+                    rotate: 0
+                })
+                this.isSending = false
+            })
+        }
+    },
+    computed: {
+        postImage() {
+            return this.inputFile ? window.URL.createObjectURL(this.inputFile) : ''
         }
     }
 }

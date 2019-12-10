@@ -15,11 +15,12 @@ section
                             .field
                                 .control
                                     input#email.input.is-large(type="email", placeholder="Your Email", autofocus, 
-                                                               v-model="email", @keydown.self.prevent.enter="nextFocus")
+                                                               v-model="email", @keydown.self.prevent.enter="nextFocus",
+                                                               autocomplete="email")
                             .field
                                 .control
                                     input#password.input.is-large(type="password", placeholder="Your Password", 
-                                                                  v-model="password")
+                                                                  v-model="password", autocomplete="password")
                             button.button.is-block.is-info.is-large.is-fullwidth(type="submit") Login&nbsp;
                                 i.fa.fa-sign-in(aria-hidden="true")
                     p.has-text-grey

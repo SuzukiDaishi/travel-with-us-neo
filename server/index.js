@@ -10,6 +10,9 @@ const multer = require('multer')
 const imgur = require('imgur')
 
 const spots = require('../assets/data/spots.json')
+const spotsOter = require('../assets/data/spotsOther.json')
+
+spots.push(spotsOter)
 
 
 // Authorization: Client-ID YOUR_CLIENT_ID
@@ -173,6 +176,43 @@ app.get( '/spots/show', async (req, res) => {
             })
         }
         return res.json({ ok: true, data: out})
+    } catch(e) {
+        return res.status(400).json({ error: 'Database Error.' })
+    }
+})
+
+app.post('/spots/upload', upload.single('image'), async (req, res) => {
+    let imagePath = ''
+    try {
+        imagePath = req.file.path
+        console.log('img uploading...');
+        let imgRes = await imgur.uploadFile(imagePath)
+        console.log('img upload fin');
+        const user = req.session.authUser.id
+        const img  = imgRes.data.link
+        const text = req.body.text
+        const spot = req.body.spot
+        const data  = {
+            userid: user,
+            spotid: spot,
+            imageurl: img,
+            text: text,
+        }
+        await models.Post.create(data)
+        fs.unlinkSync(imagePath)
+        let outData = {
+            id: data.id,
+            imageurl: data.imageurl,
+            text: data.text,
+            createAt: new Date(),
+            user: {
+                id: req.session.authUser.id,
+                name: req.session.authUser.name,
+                imgurl: req.session.authUser.imageurl,
+            },
+            spot: spots.filter(s => s.id == spot)[0],
+        }
+        return res.json({ ok: true, postInfo: outData })
     } catch(e) {
         return res.status(400).json({ error: 'Database Error.' })
     }
