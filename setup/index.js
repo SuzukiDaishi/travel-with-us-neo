@@ -3,6 +3,21 @@
  */
 const models = require('../models/index.js')
 
+models.Users.create({
+    id: 0,
+    name: 'anonymous',
+    password: '$2b$10$PkiTJ5c/VtVACYVMtouO6OM9Ictc9RWMNJHx62KVVDKadKetpm4B2',
+    email: 'anonymous.travel.with@us',
+    imageurl: null,
+    description: 'this is anonymous !'
+})
+.then((record) => {
+    console.log('anonymous account generated !')
+})
+.catch((err) => {
+    console.log('Failed to generate anonymous account ...')
+})
+
 /**
  * 管理者アカウントを生成
  * name: admin
@@ -38,7 +53,7 @@ models.Post.create({
 
 
 models.Post.create({
-    userid: 1,
+    userid: 2,
     spotid: 0,
     imageurl: 'https://i.imgur.com/JOoDeYg.jpg',
     text: 'うんち',

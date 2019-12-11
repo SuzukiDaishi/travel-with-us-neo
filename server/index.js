@@ -218,6 +218,43 @@ app.post('/spots/upload', upload.single('image'), async (req, res) => {
     }
 })
 
+app.post('/spots/upload/anonymous', upload.single('image'), async (req, res) => {
+    let imagePath = ''
+    try {
+        imagePath = req.file.path
+        console.log('img uploading...');
+        let imgRes = await imgur.uploadFile(imagePath)
+        console.log('img upload fin');
+        const user = 1
+        const img = imgRes.data.link
+        const text = req.body.text
+        const spot = req.body.spot
+        const data = {
+            userid: user,
+            spotid: spot,
+            imageurl: img,
+            text: text,
+        }
+        await models.Post.create(data)
+        fs.unlinkSync(imagePath)
+        let outData = {
+            id: null,
+            imageurl: data.imageurl,
+            text: data.text,
+            createAt: new Date(),
+            user: {
+                id: 1,
+                name: 'anonymous',
+                imgurl: null,
+            },
+            spot: spots.filter(s => s.id == spot)[0],
+        }
+        return res.json({ ok: true, postInfo: outData })
+    } catch (e) {
+        return res.status(400).json({ error: 'Database Error.' })
+    }
+})
+
 
 module.exports = {
     path: '/api',
