@@ -61,7 +61,8 @@
                                                     data-loading="/images/preloader.gif")
                                         p 
                                             | {{ post.text }}
-                    infinite-loading(spinner="spiral", @infinite="infiniteHandler", :distance="1")
+                    client-only
+                        infinite-loading(spinner="spiral", @infinite="infiniteHandler", :distance="1")
 
 </template>
 
