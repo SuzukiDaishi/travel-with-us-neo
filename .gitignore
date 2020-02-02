@@ -16,4 +16,4 @@ dist
 # PWA
 sw.*
 
-mysql/*
+/mysql/*
