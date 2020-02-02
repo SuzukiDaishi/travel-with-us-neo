@@ -1,15 +1,46 @@
 version: '3'
 
 services:
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: travelwithus_test
+      MYSQL_USER: travelwithus
+      MYSQL_PASSWORD: travelwithus
+      TZ: 'Asia/Tokyo'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_ARBITRARY: 1
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: travelwithus_test
+      MYSQL_USER: travelwithus
+      MYSQL_PASSWORD: travelwithus
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - mysql
+
   nuxt:
-    # Dockerfileの場所
     build: .
+    container_name: nuxt-web
     tty: true
-    # コンテナ起動時のコマンド
     #command: npm run start
-    # ホストOSとコンテナ内でソースコードを共有
     volumes:
       - .:/app
-    # コンテナ内部の3000を外部から８０８０でアクセス
     ports:
       - "3000:3000"
+ 
+volumes:
+  mysql:
