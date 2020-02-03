@@ -3,6 +3,7 @@ version: '3'
 services:
 
   mysql:
+    container_name: database-mysql
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -10,10 +11,12 @@ services:
       MYSQL_USER: travelwithus
       MYSQL_PASSWORD: travelwithus
       TZ: 'Asia/Tokyo'
+    expose:
+      - '3306'
     ports:
       - "3306:3306"
-    volumes:
-      - ./mysql:/var/lib/mysql
+    networks:
+      - app-net
   
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -31,6 +34,8 @@ services:
       PMA_PASSWORD: root
     depends_on:
       - mysql
+    networks:
+      - app-net
 
   nuxt:
     build: .
@@ -41,6 +46,9 @@ services:
       - .:/app
     ports:
       - "3000:3000"
+    networks:
+      - app-net
  
-volumes:
-  mysql:
+networks:
+  app-net:
+    driver: bridge
