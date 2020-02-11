@@ -16,16 +16,16 @@
                 b-field
                     b-select(placeholder="Country", icon="globe", icon-pack="fa", v-model="lang", @input="changeLang()")
                         option(:value="locale" v-for="locale in $i18n.availableLocales") {{ codeToLanguageName(locale) }}
-        template(slot="end")
-            b-navbar-item(tag="div")
-                .buttons(v-if="!$store.state.auth.authUser")
-                    nuxt-link.button.is-primary(:to="localePath('signup')")
-                        strong {{ $t('signup') }}
-                    nuxt-link.button.is-light(:to="localePath('login')")
-                        | {{ $t('login') }}
-                .buttons(v-else)
-                    button.button.is-light(@click="logout")
-                        | {{ $t('logout') }}
+        // template(slot="end")
+        //     b-navbar-item(tag="div")
+        //         .buttons(v-if="!$store.state.auth.authUser")
+        //             nuxt-link.button.is-primary(:to="localePath('signup')")
+        //                 strong {{ $t('signup') }}
+        //             nuxt-link.button.is-light(:to="localePath('login')")
+        //                 | {{ $t('login') }}
+        //         .buttons(v-else)
+        //             button.button.is-light(@click="logout")
+        //                 | {{ $t('logout') }}
 </template>
 
 <script>

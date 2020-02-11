@@ -1,7 +1,7 @@
 {
     "en": {
         "home": "Home",
-        "timeline": "Time line",
+        "timeline": "Post",
         "mypage": "My page",
         "signup": "Sign up",
         "login": "Log in",
@@ -10,7 +10,7 @@
     },
     "ja": {
         "home": "ホーム",
-        "timeline": "タイムライン",
+        "timeline": "投稿",
         "mypage": "プロフィール",
         "signup": "新規登録",
         "login": "ログイン",
