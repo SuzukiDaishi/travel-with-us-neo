@@ -8,6 +8,7 @@
                 img(src="~assets/images/logo.png")
         template(slot="start")
             b-navbar-item(tag="nuxt-link", :to="localePath('index')") {{ $t('home') }}
+            b-navbar-item(tag="nuxt-link", :to="localePath('recommend')") {{ $t('recommend') }}
             b-navbar-item(tag="nuxt-link", :to="localePath('timeline')", v-if="isLogin()") {{ $t('timeline') }}
             b-navbar-item(tag="nuxt-link", :to="localePath('anonymoustimeline')", v-else) {{ $t('timeline') }}
             b-navbar-item(tag="nuxt-link", :to="localePath('mypage-recommendspots')", v-if="isLogin()") {{ $t('mypage') }}
