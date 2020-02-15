@@ -93,7 +93,7 @@ export default {
                 .map( l => {
                     return {
                         id: l.id,
-                        point: - Math.tanh( 3 * l.distance - 3 ) / 3 + 0.5
+                        point: - Math.tanh( 3 * l.distance - 3 ) / 2 + 0.5
                     }
                 } )
         },
