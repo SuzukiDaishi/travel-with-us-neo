@@ -1,41 +1,26 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
+    "username": "travelwithus",
+    "password": "travelwithus",
     "database": "travelwithus_test",
-    "host": "localhost",
-    "port": "8889",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock",
-      "supportBigNumbers": true,
-      "bigNumberStrings": true
-    }
+    "host": "database-mysql",
+    "port": "3306",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "root",
+    "username": "travelwithus",
+    "password": "travelwithus",
     "database": "travelwithus_test",
-    "host": "localhost",
-    "port": "8889",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock",
-      "supportBigNumbers": true,
-      "bigNumberStrings": true
-    }
+    "host": "database-mysql",
+    "port": "3306",
+    "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
+    "username": "travelwithus",
+    "password": "travelwithus",
     "database": "travelwithus_test",
-    "host": "localhost",
-    "port": "8889",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock",
-      "supportBigNumbers": true,
-      "bigNumberStrings": true
-    }
+    "host": "database-mysql",
+    "port": "3306",
+    "dialect": "mysql"
   }
 }
