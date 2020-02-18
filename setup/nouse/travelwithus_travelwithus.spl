@@ -1,0 +1,111 @@
+-- MySQL dump 10.13  Distrib 5.7.28, for Linux (x86_64)
+--
+-- Host: localhost    Database: travelwithus_test
+-- ------------------------------------------------------
+-- Server version	5.7.28-0ubuntu0.16.04.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Posts`
+--
+
+DROP TABLE IF EXISTS `Posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) DEFAULT NULL,
+  `spotid` int(11) DEFAULT NULL,
+  `imageurl` varchar(255) DEFAULT NULL,
+  `text` text,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Posts`
+--
+
+LOCK TABLES `Posts` WRITE;
+/*!40000 ALTER TABLE `Posts` DISABLE KEYS */;
+INSERT INTO `Posts` VALUES (1,1,0,'https://i.imgur.com/JOoDeYg.jpg','Hello world','2019-12-16 05:25:01','2019-12-16 05:25:01'),(2,2,0,'https://i.imgur.com/JOoDeYg.jpg','こんちくわ','2019-12-16 05:25:01','2019-12-16 05:25:01'),(3,1,-1,'https://i.imgur.com/BFeqxmc.jpg','鈴木大拙館です','2019-12-16 05:27:03','2019-12-16 05:27:03'),(4,1,-1,'https://i.imgur.com/Uzi6gCu.jpg','good fun.','2019-12-16 07:34:34','2019-12-16 07:34:34'),(5,1,-1,'https://i.imgur.com/HrbsFXA.jpg','gold ice','2019-12-16 07:35:29','2019-12-16 07:35:29'),(6,1,-1,'https://i.imgur.com/qJiePKs.jpg','古文','2019-12-16 07:36:34','2019-12-16 07:36:34'),(7,1,1,'https://i.imgur.com/DuBMw0y.png','ああああ','2020-01-17 07:25:20','2020-01-17 07:25:20'),(8,1,0,'https://i.imgur.com/Ezyn4oZ.jpg','楽しゅうございました。','2020-01-21 03:55:47','2020-01-21 03:55:47'),(9,1,2,'https://i.imgur.com/510cTBe.jpg','','2020-01-21 03:56:04','2020-01-21 03:56:04'),(10,1,0,'https://i.imgur.com/12coxro.jpg','たのしかったぁー','2020-01-21 03:56:41','2020-01-21 03:56:41'),(11,1,0,'https://i.imgur.com/rPof5HD.jpg','兼六園','2020-01-28 03:44:33','2020-01-28 03:44:33'),(12,1,0,'https://i.imgur.com/XQYMYOc.jpg','楽しかったです','2020-01-28 03:46:11','2020-01-28 03:46:11'),(13,1,1,'https://i.imgur.com/LkKuMOm.jpg','金沢に来たなと実感できる景色でした。','2020-01-30 03:57:06','2020-01-30 03:57:06');
+/*!40000 ALTER TABLE `Posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SequelizeMeta`
+--
+
+DROP TABLE IF EXISTS `SequelizeMeta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SequelizeMeta` (
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SequelizeMeta`
+--
+
+LOCK TABLES `SequelizeMeta` WRITE;
+/*!40000 ALTER TABLE `SequelizeMeta` DISABLE KEYS */;
+INSERT INTO `SequelizeMeta` VALUES ('20191118212218-create-users.js'),('20191209035224-create-post.js');
+/*!40000 ALTER TABLE `SequelizeMeta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Users`
+--
+
+DROP TABLE IF EXISTS `Users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `imageurl` varchar(255) DEFAULT NULL,
+  `description` text,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Users`
+--
+
+LOCK TABLES `Users` WRITE;
+/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES (1,'anonymous','$2b$10$PkiTJ5c/VtVACYVMtouO6OM9Ictc9RWMNJHx62KVVDKadKetpm4B2','anonymous.travel.with@us',NULL,'this is anonymous !','2019-12-16 05:25:01','2019-12-16 05:25:01'),(2,'admin','$2b$10$PkiTJ5c/VtVACYVMtouO6OM9Ictc9RWMNJHx62KVVDKadKetpm4B2','travel.with@us',NULL,'this is admin !','2019-12-16 05:25:01','2019-12-16 05:25:01');
+/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-02-18 18:38:06

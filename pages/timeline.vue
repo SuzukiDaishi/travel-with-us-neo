@@ -70,8 +70,7 @@
 import InfiniteLoading from 'vue-infinite-loading'
 import VImageInput from 'vuetify-image-input'
 import anime from 'animejs'
-
-const urljoin = require('url-join')
+import urljoin from 'url-join'
 
 export default {
     data() {
@@ -101,7 +100,7 @@ export default {
             if (this.isLoading) return
             this.isLoading = true
             this.$axios
-            .get(`http://localhost:3000/api/spots/show`) 
+            .get(urljoin(process.env.baseUrl, `/api/spots/show`)) 
             .then( res => {
                 this.posts.push(...res.data.data.sort((a,b)=>a.createAt>b.createAt?-1:1))
                 $state.loaded()

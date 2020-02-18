@@ -19,7 +19,7 @@
                                 .column.is-two-fifths
                                     google-map(:gmapIframe="spotLocations.filter( s => s.id === spot.id )[0].map")        
                             span
-                                nuxt-link(:to="localePath('index')").button {{ $t('RECOMMEND_DETAILS') }}
+                                nuxt-link(:to="localePath(`/article/${spot.id}`)").button {{ $t('RECOMMEND_DETAILS') }}
 </template>
 
 <script>
