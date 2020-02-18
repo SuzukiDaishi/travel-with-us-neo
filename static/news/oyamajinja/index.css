@@ -1,0 +1,73 @@
+body{
+    font-family: "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    background-image: none;
+}
+main,footer{
+    max-width: 940px;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    color: black;
+}
+.photo img{
+    width: 100%;
+}
+.top{
+    height: 50px;
+    margin: 15px;
+
+}
+.icon{
+    float: left;
+    width: auto;
+    height: 50px;
+    margin-top: 10px;
+}
+.title{
+    float: left;
+    height: 50px;
+    margin: 15px 0 15px 15px;
+}
+.contents2{
+    border: solid;
+}
+
+.detail{
+    float: left;
+}
+.sub_title{
+  position: relative;
+  padding: 0.25em 0;
+}
+.sub_title:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
+  background: linear-gradient(to right, rgb(230, 90, 90), transparent);
+}
+dt {
+    font-weight: bold;
+    position: relative;
+    padding-left: 1.2em;/*アイコン分のスペース*/
+    line-height: 1.4;
+}
+
+dt:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";/*アイコンのユニコード*/
+    position: absolute;/*絶対位置*/
+    font-size: 1em;/*サイズ*/
+    left: 0;/*アイコンの位置*/
+    top: 0;/*アイコンの位置*/
+    color: #ff815a; /*アイコン色*/
+}
+dd{
+    margin: 10px 0 20px 15px;
+}
+.HP{
+    margin-bottom: 25px;
+}
+iframe{
+    margin-bottom: 20px;
+}

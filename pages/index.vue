@@ -16,21 +16,21 @@
       .columns.is-multiline(v-if="$device.isDesktopOrTablet")
         .column.is-one-quarter-desktop.is-half-tablet(v-for="spot in spots")
           .card
-            .card-image
-              client-only
-                div(v-lazy-container="{ selector: 'img' }")
-                  figure.image.is-4by3
-                    img(:data-src="spot.img_url", 
-                        data-loading="/images/preloader.gif", 
-                        alt="Placeholder image")
-            .card-content
-              .media
-                .media-left
-                  .media-content
-                    p.title.is-4
-                      | {{ spot.locales[$i18n.locale].name }}
-              .content
-                | {{ spot.locales[$i18n.locale].discription }}
+            nuxt-link(:to="localePath(`/article/${spot.id}`)")
+              .card-image
+                client-only
+                  div(v-lazy-container="{ selector: 'img' }")
+                    figure.image.is-4by3
+                      img(:data-src="spot.img_url", 
+                          data-loading="/images/preloader.gif", 
+                          alt="Placeholder image")
+              .card-content
+                .media
+                  .media-left
+                    .media-content
+                      p.title.is-4
+                        | {{ spot.locales[$i18n.locale].name }}
+                .content {{ spot.locales[$i18n.locale].discription }}
       .columns.is-multiline(v-else)
         .column.is-half-tablet.is-fullwidth-mobile(v-for="spot in spots")
           .card
@@ -47,7 +47,7 @@
                   .content
                     p
                       strong {{ spot.locales[$i18n.locale].name }}
-                    button.button.is-light.is-small(@click="modalShow(spot.id)") 
+                    button.button.is-light.is-small(@click="goArticle(spot.id)")
                       | {{ $t('MORE_INFO') }}
                     b-modal(:active.sync="isModal")
                       .card(v-if="modalState!==null")
@@ -103,6 +103,9 @@ export default {
     modalShow(index) {
       this.modalState = this.spots.filter( spot => spot.id===index )[0]
       this.isModal = true
+    },
+    goArticle(spotid) {
+      this.$router.push( this.localePath(`/article/${spotid}`) )
     }
   }
 }
@@ -127,5 +130,9 @@ export default {
 #map
   width: 100%
   height: 600px
+.content
+  color: black
+  &:hover
+    color: black
 </style>
 

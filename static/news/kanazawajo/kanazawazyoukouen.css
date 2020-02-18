@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  background: linear-gradient(135deg, rgba(256, 256, 256, 0.9), rgba(0, 0, 200, 0.9));
+}
+
+.main_image img {
+  width: 100%;
+}
+
+header {
+  border-top: 10px solid #18387e;
+  margin: 0 auto;
+}
+main {
+  width: 940px;
+  margin: 0 auto;
+}
+
+#big_title {
+  color: rgba(247, 184, 12, 0.9);
+  /*font-weight: bold;
+  font-size: 3em;
+  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+  line-height: 1.4;*/
+  margin-bottom: 25px;
+
+
+}
+.main_inf h2 {
+  position: relative;
+  padding: 0.25em 0;
+  margin-bottom: 30px;
+}
+.main_inf h2:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
+  background: linear-gradient(to right, rgb(230, 90, 90), transparent);
+}
+
+.main_image {
+  position: relative;
+}
+
+.main_image p {
+  position: absolute;
+  color: rgba(245, 144, 11, 0.7);
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1.4;
+  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+  top: 0%;
+  left: 0%;
+  margin:0;
+  padding:0;
+  font-style: italic;
+  }
+.main_image h1 {
+  position: absolute;
+  color: rgba(220,220,0, 0.9);
+  font-weight: bold;
+  font-size: 1.5em;
+  /*line-height: 1.4;
+  -webkit-box-reflect: below -20px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));*/
+  top: 85%;
+  left: 70%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%)
+  padding: 0;
+  font-style: italic;
+  }
+
+#sale dt{
+  float: left;
+  width: 14em;
+}
+#sale dd{
+
+  width: 36em;
+
+}
+#sale dt,
+#sale dd {
+  line-height: 1.5;
+  font-size: 1.2em;
+}
+
+footer {
+  width: 940px;
+}
