@@ -1,0 +1,38 @@
+[
+    { 
+        "id": 0, 
+        "en": {
+            "path": "/news/kenrokuen/art.html"
+        },
+        "ja": {
+            "path": "/news/kenrokuen/art.html"
+        }
+    },
+    {
+        "id": 1,
+        "en": {
+            "path": "/news/higashichayagai/tyaya.html"
+        },
+        "ja": {
+            "path": "/news/higashichayagai/tyaya.html"
+        }
+    },
+    {
+        "id": 2,
+        "en": {
+            "path": "/news/kanazawajo/kanazawazyoukouen.html"
+        },
+        "ja": {
+            "path": "/news/kanazawajo/kanazawazyoukouen.html"
+        }
+    },
+    {
+        "id": 3,
+        "en": {
+            "path": "/news/kanazawajo/kanazawazyoukouen.html"
+        },
+        "ja": {
+            "path": "/news/kanazawajo/kanazawazyoukouen.html"
+        }
+    }
+]
