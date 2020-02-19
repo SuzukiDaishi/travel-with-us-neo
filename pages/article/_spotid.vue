@@ -35,8 +35,29 @@
             </section>
 
             <!-- is Mobile or Tablet -->
-            <section v-else>
-                卍できてないよ卍
+            <section class="container top-space" v-else>
+                <div class="column sumaho-iframe">
+                    <iframe :src="spotsNews.filter(i=>i.id==$route.params.spotid)[0][$i18n.locale].path"></iframe>
+                </div>
+                <div class="column sumaho-posts">
+                    <div class="container box-scroll box-wrapper">
+                        <div class="box box-small" v-for="(post, index) in spotPosts($route.params.spotid)" :key="index">
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong> {{ post.user.name }} </strong> 
+                                            <br>
+                                            <img :src="post.imageurl">
+                                            <br>
+                                            {{ post.text }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </div>
@@ -91,5 +112,11 @@ iframe {
 }
 .box-wrapper {
     padding: 2px 5px;
+}
+.sumaho-iframe {
+    height: 50vh;
+}
+.sumaho-posts {
+    height: 30vh;
 }
 </style>
