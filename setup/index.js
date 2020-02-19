@@ -55,6 +55,16 @@ async function postMigrate() {
     await models.Post.create({ userid: 1, spotid:  1, imageurl: 'https://i.imgur.com/F24x1Ad.jpg', text: 'Walter Bishop', })
     await models.Post.create({ userid: 1, spotid: -1, imageurl: 'https://i.imgur.com/zZTrnT6.jpg', text: 'Dog', })
     await models.Post.create({ userid: 1, spotid: -1, imageurl: 'https://i.imgur.com/INaoOMi.jpg', text: 'mama', })
+
+    await models.Post.create({ userid: 1, spotid: -1, imageurl: 'https://i.imgur.com/BFeqxmc.jpg', text: '鈴木大拙館です', })
+    await models.Post.create({ userid: 1, spotid: -1, imageurl: 'https://i.imgur.com/Uzi6gCu.jpg', text: 'good fun.', })
+    await models.Post.create({ userid: 1, spotid: -1, imageurl: 'https://i.imgur.com/HrbsFXA.jpg', text: 'gold ice', })
+    await models.Post.create({ userid: 1, spotid: -1, imageurl: 'https://i.imgur.com/qJiePKs.jpg', text: '古文', })
+    await models.Post.create({ userid: 1, spotid:  0, imageurl: 'https://i.imgur.com/Ezyn4oZ.jpg', text: '楽しゅうございました。', })
+    await models.Post.create({ userid: 1, spotid:  2, imageurl: 'https://i.imgur.com/510cTBe.jpg', text: '', })
+    await models.Post.create({ userid: 1, spotid:  0, imageurl: 'https://i.imgur.com/rPof5HD.jpg', text: '兼六園', })
+    await models.Post.create({ userid: 1, spotid:  0, imageurl: 'https://i.imgur.com/XQYMYOc.jpg', text: '楽しかったです', })
+    await models.Post.create({ userid: 1, spotid:  1, imageurl: 'https://i.imgur.com/LkKuMOm.jpg', text: '金沢に来たなと実感できる景色でした。', })
 }
 
 postMigrate()
