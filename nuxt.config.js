@@ -135,7 +135,7 @@ module.exports = {
     ]
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'http://153.126.140.247/'
+    baseUrl: process.env.BASE_URL || 'http://153.126.140.247:3000/'
   }
 }
 
